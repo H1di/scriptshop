@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>{{.Name}}</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+<h1>{{.Name}}</h1>
+<form method="post" action="/logout"><span>{{.Login}}</span> <button type="submit">[logout]</button></form>
+</header>
+<main>
+{{if .Scripts}}
+<div class="row head" aria-hidden="true"><span>ID</span><span>NAME</span><span class="v">VER</span><span class="sz">SIZE</span><span class="act">PRICE</span></div>
+<ul class="list">
+{{range .Scripts}}<li class="row">
+<span>{{printf "%03d" .ID}}</span><span class="nm">{{.Name}}</span><span class="v">{{.Version}}</span><span class="sz">{{size .Size}}</span><span class="act">{{if $.User.Owns .ID}}<a href="/dl/{{.ID}}">[download]</a>{{else}}{{.Price}}{{end}}</span>
+{{with .Desc}}<p>{{.}}</p>{{end}}
+</li>
+{{end}}</ul>
+{{else}}
+<p>No scripts.</p>
+{{end}}
+</main>
+</body>
+</html>

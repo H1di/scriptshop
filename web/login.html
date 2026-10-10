@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>{{.Name}}</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main class="login">
+<h1>{{.Name}}</h1>
+<form method="post" action="/login">
+<label><span>login:</span><input name="login" autocomplete="username" autocapitalize="off" autocorrect="off" spellcheck="false" maxlength="32" required autofocus></label>
+<label><span>password:</span><input name="password" type="password" autocomplete="current-password" maxlength="256" required></label>
+{{with .Error}}<p class="err" role="alert">{{.}}</p>{{end}}
+<button type="submit">[ enter ]</button>
+</form>
+</main>
+</body>
+</html>

@@ -1,0 +1,94 @@
+:root { color-scheme: dark; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+	background: #000;
+	color: #fff;
+	font: 16px/1.5 "IBM Plex Mono", "JetBrains Mono", "DejaVu Sans Mono", Menlo, Consolas, monospace;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	max-width: 80ch;
+	margin: 0 auto;
+	padding: 4rem 2ch;
+}
+
+::selection { background: #fff; color: #000; }
+
+h1 { font-size: inherit; font-weight: normal; letter-spacing: .2ch; }
+
+a, button {
+	color: inherit;
+	background: none;
+	border: 0;
+	font: inherit;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+a:hover, button:hover,
+a:focus-visible, button:focus-visible {
+	background: #fff;
+	color: #000;
+	outline: none;
+}
+
+/* login */
+
+.login h1 { margin-bottom: 3rem; }
+
+.login label { display: flex; }
+.login label span { width: 10ch; flex: none; }
+
+.login input {
+	flex: 1;
+	min-width: 0;
+	background: transparent;
+	color: #fff;
+	border: 0;
+	outline: none;
+	font: inherit;
+	caret-color: #fff;
+	caret-shape: block;
+}
+
+.login input:-webkit-autofill {
+	-webkit-text-fill-color: #fff;
+	-webkit-box-shadow: 0 0 0 100px #000 inset;
+}
+
+.login .err { margin-top: 1.5rem; }
+.login button { margin-top: 2rem; }
+
+/* catalog */
+
+header {
+	display: flex;
+	justify-content: space-between;
+	gap: 2ch;
+	padding-bottom: 1.5rem;
+	margin-bottom: 1.5rem;
+	border-bottom: 1px solid #fff;
+}
+
+.row {
+	display: grid;
+	grid-template-columns: 5ch 1fr 9ch 8ch 13ch;
+}
+
+.row .act { text-align: right; }
+.row .nm { overflow-wrap: anywhere; padding-right: 2ch; }
+
+.head { margin-bottom: 1rem; }
+
+.list { list-style: none; }
+.list li { margin-bottom: 1.5rem; }
+.list p { grid-column: 2 / -1; }
+
+@media (max-width: 40rem) {
+	body { padding: 2rem 16px; }
+	.row { grid-template-columns: 5ch 1fr 13ch; }
+	.row .v, .row .sz { display: none; }
+}
